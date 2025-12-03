@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Amina 🎉</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Main slider container */
+.slider {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.active {
+  display: block;
+}
+
+/* ------------------------------------ */
+/* SLIDE 1 – Baby Pink With Flying Hearts */
+/* ------------------------------------ */
+#slide1 {
+  background: #ffd6e8;
+  position: relative;
+}
+
+/* Flying hearts */
+.heart {
+  position: absolute;
+  color: #ff4d88;
+  font-size: 28px;
+  animation: fly 5s linear infinite;
+}
+
+@keyframes fly {
+  0% { transform: translateY(100vh); opacity: 0; }
+  40% { opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+.wish-box {
+  margin-top: 120px;
+  text-align: center;
+}
+
+.wish-box img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.wish-box h1 {
+  font-size: 40px;
+  margin-top: 20px;
+  color: #c2185b;
+}
+
+.wish-box p {
+  font-size: 18px;
+  color: #ad1457;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* ------------------------------------ */
+/* SLIDE 2 – Memories with descriptions */
+/* ------------------------------------ */
+
+#slide2 {
+  background: #e3f2fd;
+  text-align: center;
+}
+
+.memories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.photo {
+  width: 200px;
+  text-align: center;
+}
+
+.photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.photo .desc {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #0d47a1;
+}
+
+/* ------------------------------------ */
+/* SLIDE 3 – Surprise + Heartbeat Box */
+/* ------------------------------------ */
+
+#slide3 {
+  background: #f3e5f5;
+  text-align: center;
+}
+
+.surprise-btn {
+  padding: 15px 30px;
+  background: #8e24aa;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.catalog-box {
+  width: 350px;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  border-radius: 15px;
+  padding: 25px;
+  margin: 30px auto;
+  display: none;
+  animation: heartbeat 1.5s infinite;
+}
+
+.catalog-box h3 {
+  color: #6a1b9a;
+  font-size: 24px;
+}
+
+/* Heartbeat animation */
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.12); }
+  50% { transform: scale(1.0); }
+  70% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* ------------------------------------ */
+/* SLIDE 4 – Floating Hearts */
+/* ------------------------------------ */
+
+#slide4 {
+  background: #ffe6f2;
+  padding-top: 120px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#slide4 h2 {
+  font-size: 40px;
+  color: #b30059;
+}
+
+#slide4 p {
+  max-width: 600px;
+  margin: auto;
+  margin-top: 20px;
+  font-size: 22px;
+  color: #800040;
+  font-weight: 500;
+}
+
+
+/* Floating hearts animation */
+/*
+.floating-heart {
+  position: absolute;
+  color: #ff3385;
+  font-size: 30px;
+  animation: floatHearts 6s linear infinite;
+}
+
+@keyframes floatHearts {
+  0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1.4); opacity: 0; }
+}
+*/
+.floating-heart {
+  position: absolute;
+  color: #ff3385;
+  animation: floatUp 8s linear infinite;
+  opacity: 0;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-120vh); opacity: 0; }
+}
+
+/* —— MAGIC MIRROR EFFECT ONLY FOR SLIDE 2 —— */
+
+#slide2 .magic-mirror {
+  position: relative;
+  width: 250px;
+  height: 380px;
+  margin: 40px auto;
+  perspective: 1000px;
+  transform:translateY(-40px); 
+}
+
+#slide2 .mm-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  transition: transform 1s ease, opacity 1s ease;
+  opacity: 0;
+  transform: scale(0.8) rotateY(60deg);
+}
+
+#slide2 .mm-photo.active {
+  opacity: 1;
+  transform: scale(1) rotateY(0deg);
+  z-index: 3;
+}
+
+#slide2 .mm-photo.left {
+  opacity: 0.4;
+  transform: scale(0.75) rotateY(35deg) translateX(-50px);
+  z-index: 2;
+}
+
+#slide2 .mm-photo.right {
+  opacity: 0.4;
+  transform: scale(0.75) rotateY(-35deg) translateX(50px);
+  z-index: 2;
+}
+#slide2 .mm-caption-box {
+  margin-top: -90px;
+  text-align: top;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ff3d8e;
+  background: rgba(255, 220, 240, 0.4);
+  padding: 12px 20px;
+  border-radius: 15px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(3px);
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+
+/* Fireworks Container */
+#fireworks-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Firework particle */
+.firework {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, white, transparent);
+  border-radius: 50%;
+  animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0.2);
+    opacity: 0;
+  }
+}
+
+
+
+/* Navigation */
+.nav {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav button {
+  padding: 12px 25px;
+  border: none;
+  background: #ff4d88;
+  border-radius: 8px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="slider">
+
+  <!-- ------------------ SLIDE 1 ------------------ -->
+  <div class="slide active" id="slide1">
+
+    <!-- Flying Hearts -->
+    <div class="heart" style="left:10%; animation-delay:0s">❤</div>
+    <div class="heart" style="left:40%; animation-delay:1s">❤</div>
+    <div class="heart" style="left:70%; animation-delay:2s">❤</div>
+    <div class="heart" style="left:85%; animation-delay:0.5s">❤</div>
+
+    <div class="wish-box">
+      <img src="/home/user/Downloads/WhatsApp Image 2025-12-02 at 11.09.49 PM.jpeg">
+      <h1>Happy Birthday Amina 🎉💗</h1>
+      <p>You are the sweetest soul I have ever met. Wishing you a day filled with joy, love, and endless happiness.</p>
+    </div>
+
+  </div>
+
+  <!-- ------------------ SLIDE 2 ------------------ -->
+<div class="slide" id="slide2">
+  <h1>Memories With You 💕</h1>
+
+  <div class="magic-mirror" id="magicMirror">
+    <img src="/home/user/Downloads/WhatsApp Image 2025-12-02 at 11.08.58 PM.jpeg" class="mm-photo">
+    <img src="/home/user/Downloads/WhatsApp Image 2025-12-02 at 11.08.59 PM.jpeg" class="mm-photo">
+    <img src="/home/user/Downloads/WhatsApp Image 2025-12-02 at 11.09.00 PM.jpeg" class="mm-photo">
+    <img src="/home/user/Downloads/WhatsApp Image 2025-12-02 at 11.16.21 PM(1).jpeg" class="mm-photo">
+  </div>
+  <div id="mm-caption" class="mm-caption-box">Your first caption here</div>
+
+ 
+</div>
+
+
+
+ 
+  <!-- ------------------ SLIDE 3 ------------------ -->
+  <!-- Slide 3 -->
+<div class="slide" id="slide3">
+  <h1 class="neon">🎁 Surprise For You 🎁</h1>
+
+  <button class="surprise-btn" onclick="showSurprise()">Click Me 💜</button>
+
+  <div class="catalog-box" id="catalog">
+    <h3>💜 A Special Message 💜</h3>
+    <p>Amina, my lovely sis, you already have the top brother in the world — that’s me! 😎 <br>Here’s a chocolate from my side to make your day sweeter.<br>Enjoy every bite, yaar! 💝🍫</p>
+  </div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide" id="slide4" style="position: relative; overflow: hidden;">
+  <!-- Background photo with low opacity -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('/home/user/Downloads/WhatsApp Image 2025-12-02 at 11.09.01 PM.jpeg'); background-size: cover; background-position: center; opacity: 0.4; z-index: 1;"></div>
+  
+  <h2 class="neon" style="position: absolute; top: 20px; right: 20px; z-index: 2;">One Last Thing… 💛</h2>
+  <!-- Poster-style frame with text -->
+    
+    <div style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); width: 40%; z-index: 2; background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    <p style="font-family: 'Arial', sans-serif; font-size: 18px; color: #333; text-align: center; line-height: 1.5;">
+      Enjoy your life, my dear.<br>
+      Our childhood became magical only because of you.<br>
+      I know I'm a very moody person… and it’s really hard to handle me.<br>
+      But hats off to your patience — truly.<br>
+      You are the best sister in the whole world.<br>
+      Stay happy in every moment… because your smile is everything.<br>
+      Love you.💝💝
+    </p>
+  </div>
+</div>
+
+      Enjoy your life, my dear.<br>
+      Our childhood became magical only because of you.<br>
+      I know I'm a very moody person… and it’s really hard to handle me.<br>
+      But hats off to your patience — truly.<br>
+      You are the best sister in the whole world.<br>
+      Stay happy in every moment… because your smile is everything.<br>
+      Love you.💝💝
+    </p>
+  </div>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="nav">
+  <button onclick="prevSlide()">Previous</button>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<script>
+let current = 0;
+let slides = document.querySelectorAll('.slide');
+
+function showSlide(index) {
+  slides.forEach(s => s.classList.remove('active'));
+  slides[index].classList.add('active');
+}
+
+function nextSlide() {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}
+
+function prevSlide() {
+  current = (current - 1 + slides.length) % slides.length;
+  showSlide(current);
+}
+
+function showSurprise() {
+  document.getElementById('catalog').style.display = 'block';
+}
+
+/* Floating hearts in slide 4 */
+/*
+document.addEventListener("DOMContentLoaded", () => {
+  const slide4 = document.getElementById("slide4");
+
+  for (let i = 0; i < 15; i++) {
+    let heart = document.createElement("div");
+    heart.classList.add("floating-heart");
+    heart.style.left = Math.random() * 90 + "%";
+    heart.style.animationDelay = Math.random() * 3 + "s";
+    heart.innerHTML = "❤";
+    slide4.appendChild(heart);
+  }
+});*/
+document.addEventListener("DOMContentLoaded", () => {
+  const slide4 = document.getElementById("slide4");
+
+  for (let i = 0; i < 15; i++) {
+    let heart = document.createElement("div");
+    heart.classList.add("floating-heart");
+    heart.style.left = Math.random() * 90 + "%";        // random horizontal position
+    heart.style.top = "100vh";                          // start from bottom
+    heart.style.animationDelay = Math.random() * 3 + "s";
+    heart.style.fontSize = 20 + Math.random() * 20 + "px"; // random size for variety
+    heart.innerHTML = "❤";
+    slide4.appendChild(heart);
+  }
+});
+</script>
+<!-- Include this script at the end of body -->
+<script>
+let mmIndex = 0;
+const mmPhotos = document.querySelectorAll("#slide2 .mm-photo");
+const mmCaption = document.getElementById("mm-caption");   // NEW: caption box
+
+// NEW: captions for each photo (edit as you want)
+const captions = [
+  'When I am with you, the world feels brighter,Every moment turns golden, every smile lighter ❤️',
+  "you turn my frowns into laughter,A magic touch that I chase ever after ✨",
+  "Even the vastness of the beach seems shy,When I spend it with you, beneath the sky. 🌸",
+  "My childhood memories bloom with your grace,Every corner of my heart holds your embrace 💕"
+  
+];
+
+function updateMirror() {
+  mmPhotos.forEach(p => p.classList.remove("active", "left", "right"));
+
+  let leftIndex = (mmIndex - 1 + mmPhotos.length) % mmPhotos.length;
+  let rightIndex = (mmIndex + 1) % mmPhotos.length;
+
+  mmPhotos[mmIndex].classList.add("active");
+  mmPhotos[leftIndex].classList.add("left");
+  mmPhotos[rightIndex].classList.add("right");
+
+  // NEW: Update caption with fade effect
+  mmCaption.style.opacity = 0;
+  setTimeout(() => {
+    mmCaption.innerText = captions[mmIndex];
+    mmCaption.style.opacity = 1;
+  }, 400);
+}
+
+setInterval(() => {
+  mmIndex = (mmIndex + 1) % mmPhotos.length;
+  updateMirror();
+}, 4000);
+
+updateMirror();
+</script>
+
+
+
+
+
+</body>
+</html>
+
